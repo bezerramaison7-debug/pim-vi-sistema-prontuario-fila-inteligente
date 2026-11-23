@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block titulo %}Histórico clínico{% endblock %}
+{% block corpo %}
+<header class="page-head"><div><p class="eyebrow">PRONTUÁRIO RESTRITO</p><h1>Histórico clínico</h1><p>{{ paciente.nome }}</p></div><a class="button secondary" href="{{ url_for('painel') }}">Voltar ao consultório</a></header>
+<section class="card"><h2>Atendimentos concluídos</h2>
+{% for r in registros %}<article class="record"><h3>{{ r.registrado_em.strftime('%d/%m/%Y às %H:%M') }} · {{ r.profissional }}</h3><p>{{ r.resumo }}</p>
+{% for nota in r.notas %}<h4>Nota clínica</h4><p class="note">{{ nota.texto }}</p>{% endfor %}
+</article>{% else %}<p class="empty">Sem registros concluídos para este paciente.</p>{% endfor %}
+</section>
+{% endblock %}

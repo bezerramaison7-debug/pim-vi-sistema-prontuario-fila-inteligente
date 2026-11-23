@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% block titulo %}Clínica Horizonte{% endblock %} | Horizonte</title>
+<link rel="stylesheet" href="{{ url_for('static',filename='app.css') }}">
+{% block scripts %}{% endblock %}
+</head>
+<body>
+<a class="skip" href="#principal">Ir ao conteúdo</a>
+<header class="top"><div class="shell nav">
+<a class="brand" href="{{ url_for('index') }}"><span class="brand-icon" aria-hidden="true">+</span> Horizonte</a>
+<nav aria-label="Navegação principal">
+{% if g.usuario and g.usuario.perfil == 'recepcao' %}
+<a {% if request.endpoint == 'agenda' %}aria-current="page"{% endif %} href="{{ url_for('agenda') }}">Recepção</a>
+<a {% if request.endpoint == 'pacientes' %}aria-current="page"{% endif %} href="{{ url_for('pacientes') }}">Pacientes</a>
+<a {% if request.endpoint == 'indicadores' %}aria-current="page"{% endif %} href="{{ url_for('indicadores') }}">Indicadores</a>
+{% elif g.usuario %}
+<a href="{{ url_for('painel') }}" {% if request.endpoint == 'painel' %}aria-current="page"{% endif %}>Consultório</a>
+{% endif %}
+<a {% if request.endpoint == 'monitor' %}aria-current="page"{% endif %} href="{{ url_for('monitor') }}">Sala de espera</a>
+{% if g.usuario %}<form action="{{ url_for('sair') }}" method="post"><input type="hidden" name="csrf" value="{{ csrf() }}"><button class="quiet">Sair</button></form>{% else %}<a href="{{ url_for('entrar') }}">Entrar</a>{% endif %}
+</nav></div></header>
+<main class="shell main" id="principal" tabindex="-1">
+{% for categoria, texto in get_flashed_messages(with_categories=true) %}
+<div class="alert {{ categoria }}" role="{{ 'alert' if categoria == 'erro' else 'status' }}">{{ texto }}</div>
+{% endfor %}
+{% block corpo %}{% endblock %}
+</main>
+<footer class="shell foot"><span>Clínica Horizonte</span><span>Demonstração acadêmica · Dados sintéticos</span></footer>
+</body></html>

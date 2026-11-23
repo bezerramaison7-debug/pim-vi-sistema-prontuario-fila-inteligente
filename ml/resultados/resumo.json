@@ -1,0 +1,48 @@
+{
+  "estatisticas": {
+    "marcacoes": 3410,
+    "treino": 2670,
+    "teste": 740,
+    "blocos": 540,
+    "corte": "2026-06-04",
+    "faltas_treino_pct": 23.1,
+    "lotacao_treino_pct": 26.9,
+    "espera_treino_media": 12.6,
+    "espera_treino_mediana": 9.0,
+    "espera_treino_p90": 32.4,
+    "faltas_previas_ausentes": 192,
+    "corr_fila_espera": 0.83
+  },
+  "selecao": [
+    {
+      "alvo": "no_show",
+      "selecionado": "Regressão logística",
+      "grade_melhor": {
+        "modelo__max_depth": 3,
+        "modelo__min_samples_leaf": 3
+      },
+      "treino": 2670,
+      "teste": 740
+    },
+    {
+      "alvo": "espera_min",
+      "selecionado": "Gradient Boosting ajustado",
+      "grade_melhor": {
+        "modelo__max_depth": 3,
+        "modelo__n_estimators": 60
+      },
+      "treino": 2052,
+      "teste": 582
+    },
+    {
+      "alvo": "lotacao",
+      "selecionado": "Regressão logística",
+      "grade_melhor": {
+        "modelo__max_depth": 10,
+        "modelo__min_samples_leaf": 3
+      },
+      "treino": 432,
+      "teste": 108
+    }
+  ]
+}

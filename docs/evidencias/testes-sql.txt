@@ -1,0 +1,15 @@
+
+Motor SQL Server: 16.0.4250.1
+test_02_acesso_autenticacao_csrf (test_fluxos.TesteSql.test_02_acesso_autenticacao_csrf) ... ok
+test_03_agenda_conflitos_e_cancelamento (test_fluxos.TesteSql.test_03_agenda_conflitos_e_cancelamento) ... ok
+test_04_fila_concorrencia_e_prontuario (test_fluxos.TesteSql.test_04_fila_concorrencia_e_prontuario) ... ok
+test_05_faltas_e_dml (test_fluxos.TesteSql.test_05_faltas_e_dml) ... ok
+test_06_latencia_local_e_contrato_publico (test_fluxos.TesteSql.test_06_latencia_local_e_contrato_publico) ... 
+API /api/fila: 40 leituras, p95=4.5 ms, ambiente local de demonstração.
+ok
+test_01_validacao_horario (test_fluxos.TesteUnitario.test_01_validacao_horario) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 1.664s
+
+OK

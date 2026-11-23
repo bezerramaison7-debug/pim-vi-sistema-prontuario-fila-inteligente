@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="pt-BR"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wireframes navegáveis · Clínica Horizonte</title>
+<style>
+*{box-sizing:border-box}body{max-width:960px;margin:24px auto;padding:0 18px;font:16px/1.5 system-ui;color:#101820;background:#fafafa}
+h1,h2{line-height:1.15}nav, .links{display:flex;gap:8px;flex-wrap:wrap;margin:16px 0}a{color:#111;border:1px solid #424952;background:white;padding:7px 10px;border-radius:3px}a:focus-visible{outline:3px solid #3d4a67}
+section{border:2px solid #444;padding:20px;background:#fff;display:none;min-height:340px}section:target{display:block}body:not(:has(section:target)) #acesso{display:block}
+.layout{display:grid;grid-template-columns:1.6fr 1fr;gap:12px}.box,.line{border:1px solid #5d6268;background:#f4f4f4;padding:8px;margin-bottom:8px}.box{padding:15px}.line strong{display:block}
+@media(max-width:650px){.layout{grid-template-columns:1fr}}
+</style>
+<body>
+<h1>Clínica Horizonte</h1><p>Protótipo de baixa fidelidade. Use os links para percorrer cada papel.</p>
+<nav aria-label="Telas do protótipo"><a href="#acesso">Login</a><a href="#recepcao">Recepção</a><a href="#pacientes">Cadastro</a><a href="#monitor">Sala de espera</a><a href="#medico">Consultório</a><a href="#historico">Histórico</a></nav>
+<main>
+<section id="acesso"><h2>Acesso</h2><div class="layout"><div class="box">Clínica Horizonte<br>Entrada para os perfis de trabalho</div><div class="box"><div class="line">Usuário [campo]</div><div class="line">Senha [campo]</div><div class="links"><a href="#recepcao">Entrar como recepção</a><a href="#medico">Entrar como médico</a></div></div></div><a href="#monitor">Acompanhar chamadas</a></section>
+<section id="recepcao"><h2>Recepção</h2><div class="layout"><div class="box"><h3>Agenda do dia</h3><div class="line"><strong>08h00 · Paciente A</strong>Estado · triagem administrativa</div><div class="links"><a href="#monitor">Confirmar chegada e ver monitor</a></div></div><div class="box"><h3>Marcar consulta</h3><div class="line">Paciente · profissional · consultório</div><div class="line">Data · horário · tipo</div><a href="#pacientes">Cadastrar paciente</a></div></div></section>
+<section id="pacientes"><h2>Cadastro de pacientes</h2><div class="layout"><div class="box"><h3>Buscar paciente</h3><div class="line">Nome [campo]</div><div class="line">Resultados</div></div><div class="box"><h3>Novo cadastro</h3><div class="line">Nome completo</div><div class="line">Nascimento · telefone</div><a href="#recepcao">Salvar e voltar à agenda</a></div></div></section>
+<section id="monitor"><h2>Sala de espera</h2><div class="layout"><div class="box"><h3>Senha chamada</h3><div class="line"><strong>F12345678</strong>Consultório 01</div></div><div class="box"><h3>Movimento da fila</h3><div class="line">2 senhas aguardando</div><p>Atualização automática e estado de conexão</p></div></div><a href="#acesso">Voltar ao início</a></section>
+<section id="medico"><h2>Consultório</h2><div class="layout"><div class="box"><h3>Fila do profissional</h3><div class="line"><strong>Paciente A · Chamado</strong>Iniciar · concluir atendimento</div><div class="line">Resumo · nota</div></div><div class="box"><h3>Buscar histórico</h3><div class="line">Nome [campo]</div><a href="#historico">Abrir histórico</a></div></div></section>
+<section id="historico"><h2>Histórico clínico</h2><div class="box"><h3>Paciente A</h3><div class="line">Data · profissional · resumo</div><div class="line">Nota clínica restrita</div></div><a href="#medico">Voltar ao consultório</a></section>
+</main></body></html>

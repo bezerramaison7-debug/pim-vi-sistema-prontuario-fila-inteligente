@@ -1,0 +1,13 @@
+id;prioridade;sprint;papel;historia;aceite;estado;teste
+US01;1;1;recepção e médico;Quero entrar com perfil próprio para acessar minha área;Autenticar e recusar perfil sem permissão;Concluído;T02
+US02;2;1;recepção;Quero cadastrar e localizar pacientes para agendar;Cadastro válido persiste e busca prefixada retorna o registro;Concluído;T03 TB
+US03;3;1;recepção;Quero agendar com consultório e profissional;Conflito de pessoa sala ou profissional no mesmo slot é recusado;Concluído;T01 T03
+US04;4;2;recepção;Quero confirmar a chegada e informar a senha;Chegada única por marcação de hoje e emissão de senha;Concluído;T04 TB
+US05;5;2;médico;Quero chamar a próxima senha do meu consultório;Prioridade administrativa precede chegada e chamadas concorrentes têm um vencedor;Concluído;T04 TB
+US06;6;2;paciente;Quero identificar minha senha e sala;Monitor atualiza sozinho e não divulga identidade;Concluído;T04 T06 TB
+US07;7;2;médico;Quero concluir consulta e consultar histórico;Sequência válida grava resumo e nota JSON e bloqueia profissional sem vínculo;Concluído;T04 TB
+US08;8;2;recepção;Quero registrar faltas e cancelamentos;Falta após 15 minutos e cancelamento libera o slot;Concluído;T03 T05
+US09;9;3;recepção;Quero acompanhar indicadores por dia;Contagens e espera média têm definição visível;Concluído;T04 T05 TB
+US10;10;3;gestão;Quero comparar modelos com dados sintéticos;Três alvos e dois algoritmos por alvo com comparação temporal e métricas salvas;Concluído;TM
+US11;11;3;avaliador;Quero reproduzir a demonstração;Repositório tem instalação exemplos e roteiro de avaliação;Concluído;T01 a T06 TB TM
+US12;12;3;paciente recepção e médico;Quero experimentar o fluxo com colegas em papéis simulados;Três roteiros observados com dificuldades e reteste de ajustes;A validar com colegas;TU

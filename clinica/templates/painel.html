@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block titulo %}Consultório{% endblock %}
+{% block corpo %}
+<header class="page-head"><div><p class="eyebrow">ATENDIMENTO CLÍNICO</p><h1>Consultório</h1><p>Chame a próxima senha e registre o atendimento.</p></div>
+<form action="{{ url_for('proximo') }}" method="post"><input type="hidden" name="csrf" value="{{ csrf() }}"><button>Chamar próxima senha</button></form></header>
+<section class="card"><div class="section-head"><h2>Fila do profissional</h2><span class="pill">{{ registros|length }} na fila</span></div>
+{% for item in registros %}
+<article class="visit" aria-label="{{ item.paciente }}">
+<div class="slot">{{ item.chegada.strftime('%H:%M') }}</div><div class="visit-main">
+<h3>{{ item.paciente }}</h3><p>{{ item.sala }} · <span class="token">{{ item.senha }}</span></p>
+<div class="tags"><span class="pill {{ item.fila }}">{{ estados[item.fila] }}</span>{% if item.ordem %}<span class="pill">Prioridade administrativa</span>{% endif %}</div>
+{% if item.fila != 'aguardando' %}<p><a href="{{ url_for('historico',paciente_id=item.paciente_id) }}">Abrir histórico</a></p>{% endif %}
+{% if item.fila == 'chamado' %}<form method="post" action="{{ url_for('consulta',ag_id=item.id,acao='iniciar') }}"><input type="hidden" name="csrf" value="{{ csrf() }}"><button>Iniciar atendimento</button></form>{% endif %}
+{% if item.fila == 'em_atendimento' %}
+<form method="post" class="stack registro" action="{{ url_for('consulta',ag_id=item.id,acao='concluir') }}">
+<input type="hidden" name="csrf" value="{{ csrf() }}">
+<label>Resumo do atendimento<textarea name="resumo" rows="3" required maxlength="500"></textarea></label>
+<label>Nota clínica opcional<textarea name="nota" rows="3" maxlength="3000"></textarea></label>
+<button>Concluir atendimento</button></form>{% endif %}
+</div></article>
+{% else %}<p class="empty">Nenhum atendimento ativo. Aguarde a confirmação de chegada pela recepção.</p>{% endfor %}
+</section>
+<section class="card history-jump"><h2>Buscar histórico</h2>
+<form class="date-filter" method="get"><label>Nome do paciente<input type="search" name="historico" value="{{ busca }}" maxlength="100" required></label><button class="secondary">Consultar histórico</button></form>
+{% if busca %}<ul class="list">
+{% for p in resultados %}<li><a href="{{ url_for('historico',paciente_id=p.id) }}">{{ p.nome }} · {{ p.nascimento.strftime('%d/%m/%Y') }} · #{{ p.id }}</a></li>
+{% else %}<li>Nenhum paciente encontrado no seu histórico.</li>{% endfor %}
+</ul>{% endif %}</section>
+{% endblock %}

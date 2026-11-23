@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block titulo %}Sala de espera{% endblock %}
+{% block scripts %}<script defer src="{{ url_for('static',filename='monitor.js') }}"></script>{% endblock %}
+{% block corpo %}
+<header class="page-head"><div><p class="eyebrow">CHAMADAS</p><h1>Sala de espera</h1><p>Quando sua senha aparecer, dirija-se ao consultório indicado.</p></div></header>
+<div class="columns monitor-grid">
+<section class="card monitor"><h2>Senhas chamadas</h2><div id="chamadas" role="status" aria-live="polite"><p>Carregando chamadas…</p></div>
+<noscript><p>Ative o JavaScript para acompanhar as chamadas.</p></noscript></section>
+<aside class="card"><h2>Movimento da fila</h2><p class="big" id="total">—</p><p>Senhas aguardando</p><p class="small" id="referencia"></p><p class="small connection" role="status" id="atualizacao">Conectando ao painel…</p></aside>
+</div>
+{% endblock %}

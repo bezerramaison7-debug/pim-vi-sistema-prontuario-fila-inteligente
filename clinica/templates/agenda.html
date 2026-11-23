@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block titulo %}Recepção{% endblock %}
+{% block corpo %}
+<header class="page-head"><div><p class="eyebrow">ATENDIMENTO</p><h1>Recepção</h1><p>Agende consultas, confirme chegadas e acompanhe a fila da unidade.</p></div>
+<form class="date-filter" method="get"><label>Dia da agenda<input type="date" name="dia" value="{{ dia }}" required></label><button class="secondary">Consultar</button></form></header>
+<div class="columns">
+<section class="card" aria-labelledby="agenda-title"><div class="section-head"><h2 id="agenda-title">Agenda do dia</h2><span class="pill">{{ registros|length }} registros</span></div>
+{% for item in registros %}
+<article class="visit" aria-label="{{ item.paciente }}">
+<div class="slot">{{ item.inicio.strftime('%H:%M') }}</div>
+<div class="visit-main"><h3>{{ item.paciente }}</h3><p>{{ item.profissional }} · {{ item.sala }}</p>
+<div class="tags"><span class="pill {{ item.fila or item.status }}">{{ estados[item.fila or item.status] }}</span>{% if item.senha %}<span class="token">{{ item.senha }}</span>{% endif %}</div>
+{% if item.status == 'marcado' and not item.fila %}
+<div class="actions">
+{% if dia == hoje %}
+<form action="{{ url_for('chegada',ag_id=item.id,acao='chegada') }}" method="post">
+<input type="hidden" name="csrf" value="{{ csrf() }}">
+<label>Triagem administrativa<select name="prioridade"><option value="0">Ordem de chegada</option><option value="1">Prioridade administrativa</option></select></label>
+<button>Confirmar chegada</button>
+</form>
+{% endif %}
+<form action="{{ url_for('chegada',ag_id=item.id,acao='falta') }}" method="post"><input type="hidden" name="csrf" value="{{ csrf() }}"><button class="quiet">Registrar falta</button></form>
+<form action="{{ url_for('chegada',ag_id=item.id,acao='cancelado') }}" method="post"><input type="hidden" name="csrf" value="{{ csrf() }}"><button class="quiet">Cancelar</button></form>
+</div>{% endif %}
+</div></article>
+{% else %}<p class="empty">Nenhum agendamento nesta data.</p>{% endfor %}</section>
+<section class="card" aria-labelledby="novo-title"><h2 id="novo-title">Novo agendamento</h2>
+<form method="post" class="stack"><input type="hidden" name="csrf" value="{{ csrf() }}">
+<label>Paciente<select name="paciente" required><option value="">Selecione</option>{% for p in pacientes %}<option value="{{ p.id }}">{{ p.nome }} · {{ p.nascimento.strftime('%d/%m/%Y') }} · #{{ p.id }}</option>{% endfor %}</select></label>
+<a class="small" href="{{ url_for('pacientes') }}">Cadastrar paciente</a>
+<label>Profissional<select name="profissional" required>{% for m in medicos %}<option value="{{ m.id }}">{{ m.nome }}</option>{% endfor %}</select></label>
+<label>Consultório<select name="sala" required>{% for s in salas %}<option value="{{ s.id }}">{{ s.nome }}</option>{% endfor %}</select></label>
+<label>Data e horário<input name="inicio" type="datetime-local" value="{{ dia }}T09:00" step="900" required><span>Intervalos de 15 minutos</span></label>
+<label>Tipo de consulta<select name="modalidade"><option value="primeira">Primeira consulta</option><option value="retorno">Retorno</option><option value="encaixe">Encaixe</option></select></label>
+<button>Agendar consulta</button></form></section>
+</div>
+{% endblock %}

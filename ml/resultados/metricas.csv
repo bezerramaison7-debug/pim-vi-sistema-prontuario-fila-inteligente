@@ -1,0 +1,13 @@
+alvo,modelo,CV_AUC,acuracia,precisao,recall,F1,AUC,CV_RMSE,MAE,RMSE
+no_show,Dummy prevalência,0.5,0.7865,0.0,0.0,0.0,0.5,,,
+no_show,Regressão logística,0.7016,0.8054,0.6667,0.1772,0.28,0.7196,,,
+no_show,Random Forest,0.655,0.7824,0.4762,0.1899,0.2715,0.6791,,,
+no_show,Random Forest ajustado,0.6958,0.7919,1.0,0.0253,0.0494,0.7061,,,
+espera_min,Dummy mediana,,,,,,,11.6942,9.6962,13.5109
+espera_min,Regressão linear,,,,,,,6.2051,5.0949,6.5973
+espera_min,Gradient Boosting,,,,,,,5.2328,4.3076,5.5383
+espera_min,Gradient Boosting ajustado,,,,,,,5.17,4.3227,5.5606
+lotacao,Dummy prevalência,0.5,0.6574,0.0,0.0,0.0,0.5,,,
+lotacao,Regressão logística,0.9559,0.8981,0.8611,0.8378,0.8493,0.9758,,,
+lotacao,Random Forest,0.9353,0.8796,0.9286,0.7027,0.8,0.9545,,,
+lotacao,Random Forest ajustado,0.9301,0.8796,0.875,0.7568,0.8116,0.9537,,,

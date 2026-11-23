@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block titulo %}Indicadores{% endblock %}
+{% block corpo %}
+<header class="page-head"><div><p class="eyebrow">OPERAÇÃO</p><h1>Indicadores da clínica</h1><p>Resumo da agenda e da fila por data.</p></div>
+<form class="date-filter"><label>Dia de referência<input type="date" name="dia" value="{{ dia }}" required></label><button class="secondary">Consultar</button></form></header>
+<div class="metrics">
+{% for rotulo, valor in [('Marcações ativas',dados.total),('Realizados',dados.realizados),('Faltas',dados.faltas),('Aguardando',dados.aguardando),('Espera média',('%.1f min'|format(dados.espera)) if dados.espera is not none else '—')] %}
+<div class="card metric"><span>{{ rotulo }}</span><strong>{{ valor }}</strong></div>{% endfor %}
+</div>
+<p class="small">Cancelamentos são excluídos. A espera é medida da chegada ao início do atendimento nas consultas iniciadas.</p>
+{% endblock %}
