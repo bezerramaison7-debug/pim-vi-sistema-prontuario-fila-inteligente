@@ -1,0 +1,4 @@
+Chromium: 150.0.7871.100
+Propagação da chamada até o DOM do monitor: 4.94 s.
+Aprovado: teclado, cadastro, agenda, prioridade, monitor, consulta, nota, histórico e indicadores.
+Aprovado: 7 rotas em 360, 768 e 1280 px sem transbordamento horizontal.

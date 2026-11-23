@@ -1,5 +1,5 @@
 digraph Clinica {
-  graph [rankdir=LR, bgcolor="white", pad=.23, nodesep=.35, ranksep=.65, splines=spline];
+  graph [rankdir=TB, bgcolor="white", pad=.23, nodesep=.48, ranksep=.38, splines=spline];
   node [shape=record, fontname="Liberation Sans", fontsize=12, style=filled, color="#43646a", fillcolor="#f1f7f5", margin=".14,.08"];
   edge [fontname="Liberation Sans", fontsize=10, color="#426a70", fontcolor="#23454a", arrowsize=.55];
   U [label="{Unidade|PK id\lnome\l}"];
@@ -11,6 +11,9 @@ digraph Clinica {
   H [label="{Atendimento|PK/FK agendamento_id\lFK autor_id\lregistrado_em, resumo\l}"];
   R [label="{Usuário|PK id\lFK profissional_id (opcional)\llogin, senha_hash, perfil\l}"];
   J [label="{Documento pendente|PK id\ltipo, entidade_id\lcriado_em, conteúdo JSON\l}",style="filled,dashed"];
+  {rank=same; P; D; U;}
+  {rank=same; R; S;}
+  {rank=same; F; H;}
   U -> S [label=" 1 : N "]; S -> A [label=" 1 : N "]; P -> A [label=" 1 : N "]; D -> A [label=" 1 : N "];
   D -> R [label=" 1 : 0..1 "]; R -> H [label=" 1 : N "]; A -> F [label=" 1 : 0..1 "]; A -> H [label=" 1 : 0..1 "];
   H -> J [label=" referência lógica ",style=dashed]; A -> J [style=dashed]; P -> J [style=dashed];

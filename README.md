@@ -70,7 +70,7 @@ Execute as células em ordem. O caderno regenera o [CSV sintético](ml/atendimen
 |---|---|
 | Engenharia de Software Ágil | [Backlog e sprints](docs/backlog.csv), [Kanban e qualidade](docs/engenharia.md), [plano e resultados de teste](docs/testes.md) |
 | Banco de Dados e NoSQL | [Diagrama ER](docs/er.png), [dicionário dos dados e JSON](docs/banco.md), [DDL](sql/01_schema.sql), [DML](sql/02_exemplos.sql) |
-| UX e UI Design | [Protótipo navegável em wireframes](docs/prototipo.html), [roteiro de observação e avaliação](docs/usabilidade.md), [capturas e logs](docs/evidencias/) |
+| UX e UI Design | [Protótipo navegável](docs/prototipo.html), [wireframes](docs/wireframes.png), [roteiro de observação e avaliação](docs/usabilidade.md), [capturas e logs](docs/evidencias/) |
 | Machine Learning e Análise de Dados | [Caderno executado](ml/pim_vi.ipynb), [dados e simulador](ml/), [resultados](ml/resultados/) |
 
 Para navegar no protótipo de baixa fidelidade, baixe `docs/prototipo.html` e abra-o no navegador. O relatório acadêmico com paginação, fundamentação e evidências é entregue em PDF e Word. A avaliação com colegas desempenhando os papéis simulados consta como pendência e tem roteiro pronto. O ambiente é acadêmico e de instância única. A validação operacional deve contemplar TLS, perfis e retenção institucionais, backups e testes de carga e recuperação.
