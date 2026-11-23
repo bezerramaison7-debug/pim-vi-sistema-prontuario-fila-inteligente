@@ -12,6 +12,6 @@ Ambiente de integração: Python 3.12, Flask e SQL Server 2022, com base descart
 | T06 | 40 acessos ao feed público e saúde da base | Contrato mínimo; p95 menor que 500 ms no cenário | Log SQL |
 | TB | Executar a jornada integrada em Chromium e verificar três larguras | Cadastro, chamada e nota confirmados; foco e largura dentro do limite | Log de navegador e capturas |
 | TM | Executar notebook e verificar saídas | CSV, figuras, 12 linhas de comparação, previsões e seleção salvas | Artefatos de ML |
-| TU | Observar colegas nos papéis simulados | Registro de dificuldades, ajustes e reteste | Pendente |
+| TU1–TU3 | Executar os percursos simulados de paciente, recepção e médico | Concluir cada tarefa e registrar comportamentos que geram atrito | [Log e capturas](evidencias/usabilidade/) |
 
 Evidências em [evidencias/](evidencias/). As capturas são do protótipo em execução com dados sintéticos. As métricas de desempenho descrevem o ambiente local. A validação de carga, a recuperação de falha de infraestrutura e as políticas institucionais de acesso e retenção ficam fora da demonstração.

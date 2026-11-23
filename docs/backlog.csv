@@ -10,4 +10,4 @@ US08;8;2;recepção;Quero registrar faltas e cancelamentos;Falta após 15 minuto
 US09;9;3;recepção;Quero acompanhar indicadores por dia;Contagens e espera média têm definição visível;Concluído;T04 T05 TB
 US10;10;3;gestão;Quero comparar modelos com dados sintéticos;Três alvos e dois algoritmos por alvo com comparação temporal e métricas salvas;Concluído;TM
 US11;11;3;avaliador;Quero reproduzir a demonstração;Repositório tem instalação exemplos e roteiro de avaliação;Concluído;T01 a T06 TB TM
-US12;12;3;paciente recepção e médico;Quero experimentar o fluxo com colegas em papéis simulados;Três roteiros observados com dificuldades e reteste de ajustes;A validar com colegas;TU
+US12;12;3;paciente recepção e médico;Quero experimentar o fluxo com colegas em papéis simulados;Três roteiros observados com dificuldades e reteste de ajustes;Percursos simulados executados e observação humana em aberto;TU1–TU3

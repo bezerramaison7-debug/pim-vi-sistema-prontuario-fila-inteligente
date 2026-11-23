@@ -9,3 +9,5 @@ Base sintética no SQL Server 2022 (16.0.4250.1), com aplicação Flask executad
 - [Histórico com nota JSON recuperada](06-historico.jpg) e [indicadores](07-indicadores.jpg)
 
 A propagação até o DOM do painel levou 4,94 s nessa execução. A API teve p95 de 4,5 ms em 40 leituras locais sequenciais. A consulta e reconstrução documental no fim da demonstração retornaram nove eventos de auditoria e uma nota. As capturas mostram estados sucessivos do mesmo fluxo com o mesmo token de demonstração. A avaliação com colegas tem um [roteiro separado](../usabilidade.md).
+
+- [Rodada complementar de usabilidade simulada](usabilidade/) e [roteiro](../usabilidade.md)

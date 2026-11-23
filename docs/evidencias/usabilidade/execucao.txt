@@ -1,0 +1,7 @@
+Chromium 150.0.7871.100 | Dados sintéticos e três papéis automatizados.
+Usuário 2 | Recepção | CONCLUÍDO | Cadastro, agendamento às 09:15 e check-in confirmados.
+Observação U2: às 08:00 o conflito foi informado. O formulário voltou a 09:00 e perdeu a seleção do paciente.
+Usuário 1 | Paciente | CONCLUÍDO | Senha localizada no celular e vinculada ao Consultório 01.
+Observação U1: antes da chamada havia apenas contagem agregada. Chamada exibida em 4.92 s após o clique no consultório.
+Usuário 3 | Médico | CONCLUÍDO | Chamada, registro e recuperação da nota no histórico.
+Observação U3: sobrenome isolado não trouxe resultado; a busca “Marina” encontrou o registro.

@@ -10,8 +10,8 @@
 |---|---|
 | A fazer | Sem cartões adicionais nesta entrega |
 | Em andamento | Sem cartões em execução na versão registrada |
-| Em validação | US12, sessão com colegas |
-| Concluído | US01–US11 |
+| Em validação | Observação com participantes humanos, conforme o manual |
+| Concluído | US01–US11 e os três percursos simulados de US12 |
 
 ## Responsabilidades
 

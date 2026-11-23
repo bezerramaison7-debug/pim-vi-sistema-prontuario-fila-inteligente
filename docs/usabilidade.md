@@ -10,14 +10,20 @@ A pesquisa exploratória usou cenários fictícios. Paciente, recepção e médi
 | A referência de espera poderia ser interpretada como previsão individual. | Texto foi alterado para “Referência para escoar a fila atual”, com unidade e uma sala como referência. | Monitor apresenta contexto, estado de conexão e chamada na viewport móvel. |
 | A agenda contém várias marcações e ações repetidas. | Ações agrupadas dentro de cada registro, com estado textual e navegação por foco visível. | Capturas e verificação de largura registradas no roteiro. |
 
-## Ciclo moderado com colegas
+## Três percursos simulados
 
-Preparação: base recém-semeada, papel sorteado e conta de demonstração correspondente. Orientação: executar o cenário sem receber os nomes dos botões. Moderador registra conclusão independente, passos errados, ajuda solicitada e comentários da pessoa. Use um código de participante, sem nome real na planilha. Proposta de aceite: as três tarefas principais concluídas, registrar cada interrupção e repetir o roteiro afetado após o ajuste.
+Executados no Chromium em sessões isoladas, com banco SQL Server recém-semeado. Usuários 1, 2 e 3 designam papéis automatizados. A rodada verifica comportamentos observáveis da interface.
 
-| Papel simulado | Tarefa e sucesso observável | Tempo | Ajuda | Achados |
-|---|---|---|---|---|
-| Paciente | Identificar se a senha dada foi chamada e qual a sala. | Pendente | Pendente | Pendente |
-| Recepcionista | Cadastrar, agendar e registrar chegada, comunicando a senha. | Pendente | Pendente | Pendente |
-| Médico | Chamar, iniciar, concluir e recuperar a nota pelo nome. | Pendente | Pendente | Pendente |
+| Usuário | Papel | Resultado | Ponto observado |
+|---|---|---|---|
+| 1 | Paciente | Encontrou a senha e o Consultório 01 no painel móvel sem recarregar. | Antes da chamada, via apenas a contagem agregada da fila. |
+| 2 | Recepção | Cadastrou, confirmou horário livre e registrou a chegada. | O conflito de horário exibiu erro útil, mas apagou a seleção do paciente e voltou ao horário padrão. |
+| 3 | Médico | Chamou a senha, concluiu o atendimento e encontrou a nota no histórico. | Uma busca só pelo sobrenome não retornou resultados. O primeiro nome retornou a consulta. |
 
-Perguntas finais: “Em que momento houve dúvida?”, “Que informação esperava encontrar?” e “O que mudou quando a tela atualizou?”. Priorize falhas que impeçam a conclusão da tarefa e repita com um cenário equivalente. A inspeção automatizada cobre o fluxo e aspectos técnicos. O ciclo com colegas permanece aberto.
+O [log](evidencias/usabilidade/execucao.txt) e as [capturas por papel](evidencias/usabilidade/) registram essa execução. O tempo registrado é a latência de atualização do painel. Tempos de leitura, comentários e pedidos de ajuda exigiriam participantes reais.
+
+Melhorias propostas: preservar os dados preenchidos em caso de conflito, esclarecer a busca por prefixo e avaliar uma forma de informar a espera individual sem expor a identidade da pessoa.
+
+### Reproduzir
+
+Com base recém-semeada, aplicação em execução e Playwright instalado, execute `python tests/usabilidade_simulada.py`. O script altera a base de demonstração e lê `DEMO_PASSWORD` do ambiente. Pode-se configurar o endereço e o destino das evidências por `APP_URL` e `EVIDENCIAS`.
